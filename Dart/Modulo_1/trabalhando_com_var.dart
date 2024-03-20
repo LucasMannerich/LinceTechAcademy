@@ -3,8 +3,8 @@ void main() {
   //Object nomeCompleto = 'Lucas Mannerich';
   //String nomeCompleto = 'Lucas Mannerich';
   dynamic nomeCompleto = 'Lucas Mannerich';
-  nomeCompleto = 1.0;
   nomeCompleto = true;
+  nomeCompleto = 1.0;
 
   print(nomeCompleto);
 }
