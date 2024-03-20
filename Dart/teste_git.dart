@@ -1,3 +1,3 @@
-main(){
-  print('Integrando com git');
+void main(){
+  print('Versionando com git');
 }
