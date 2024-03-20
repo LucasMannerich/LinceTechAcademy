@@ -3,7 +3,7 @@ void main() {
   late double resultado = _getValorTotal();
   //⬇ Quando chamado o programa entende que a var está sendo utilizada e chama a func
   resultado.toInt();
-  print('Chamando a dunc Main');
+  print('Chamando a func Main');
 }
 
 double _getValorTotal() {
