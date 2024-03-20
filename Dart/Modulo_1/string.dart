@@ -13,7 +13,7 @@ void main() {
   //String string7 = 'O meu nome é "Washington"';
 
   String linguagem = "Dart";
-  String mensagem = "estou estudando a Linguagem $linguagem";
+  String mensagem = "estou estudando a Linguagem ${linguagem.toUpperCase()}";
 
   print(mensagem);
 }
