@@ -4,5 +4,5 @@ void main() {
   //⬇ Nullable types
   String? sobrenome = null;
 
-  print('$nome $sobrenome');
+  print('$nome$sobrenome');
 }
