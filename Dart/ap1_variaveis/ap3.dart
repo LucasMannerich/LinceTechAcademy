@@ -12,5 +12,4 @@ void main() {
   numAleatorio2 = inversao;
 
   print('Após a inversão os números ficaram na seguinte ordem: $numAleatorio1 e $numAleatorio2');
-  //Não entendi muito bem onde usar const, então optei por usar apenas final
 }
