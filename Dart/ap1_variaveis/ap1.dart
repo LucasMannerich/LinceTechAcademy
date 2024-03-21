@@ -1,4 +1,4 @@
-main () {
+void main () {
   String nome = 'Lucas';
   String sobrenome = 'Mannerich';
   int idade = 18;
