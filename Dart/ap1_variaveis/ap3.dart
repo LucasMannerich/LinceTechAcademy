@@ -2,8 +2,8 @@ import 'dart:math';
 
 void main() {
   final random = Random();
-  int numAleatorio1 = random.nextInt(100);
-  int numAleatorio2 = random.nextInt(100);
+  int numAleatorio1 = random.nextInt(101);
+  int numAleatorio2 = random.nextInt(101);
 
   print('Foram sorteados os seguintes números: $numAleatorio1 e $numAleatorio2');
 
