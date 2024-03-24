@@ -6,20 +6,26 @@ void main() {
     'MG': ['Belo Horizonte', 'Juiz de Fora', 'Berlinda']
   };
   
-  var cidadesMG = estadosCidades['MG']!;
-  cidadesMG.sort();
-  var cidadesPR = estadosCidades['PR']!;
-  cidadesPR.sort();
-  var cidadesSC = estadosCidades['SC']!;
+  List<String> cidadesSC = estadosCidades['SC']!;
   cidadesSC.sort();
-  var cidadesSP = estadosCidades['SP']!;
-  cidadesSP.sort();
   
   print('Estados: ${estadosCidades.keys.join(' ; ')}');
+
   print('Cidades de SC: ${cidadesSC.join(' ; ')}');
-  print('${cidadesMG.join(' - MG\n')}');
-  print('${cidadesPR.join(' - PR\n')}');
-  print('${cidadesSC.join(' - SC\n')}');
-  print('${cidadesSP.join(' - SP\n')}');
   
+  List<String> todasCidades = [];
+    estadosCidades.values.forEach(
+    (cidades) => todasCidades.addAll(cidades)
+  );
+
+  todasCidades.sort();
+
+  todasCidades.forEach((cidade) {
+    for (String estado in estadosCidades.keys) {
+      if (estadosCidades[estado]!.contains(cidade)) {
+        print('$cidade - $estado');
+        break;
+      }
+    }
+  });
 }
