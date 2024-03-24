@@ -6,6 +6,7 @@ void main() {
     'MG': ['Belo Horizonte', 'Juiz de Fora', 'Berlinda']
   };
   
+                                            // ⬇ serve para indicar que o item não será null
   List<String> cidadesSC = estadosCidades['SC']!;
   cidadesSC.sort();
   
