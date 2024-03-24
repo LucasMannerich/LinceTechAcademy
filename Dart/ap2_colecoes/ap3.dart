@@ -5,10 +5,9 @@ void main () {
   List<int> listaAleatoria = [];
 
   for(int i = 0; i <= 50; i++) {
-    listaAleatoria.add(random.nextInt(22));
+    listaAleatoria.add(random.nextInt(12) + 10);
   }
-
-  listaAleatoria.removeWhere((Number) => (Number < 10));
+  
   List<int> listaUnica = listaAleatoria.toSet().toList();
   
   print('Lista original: ${listaAleatoria}');
