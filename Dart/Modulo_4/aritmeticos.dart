@@ -9,10 +9,10 @@ void main() {
 
   print(++numero);
   print(numero);
-  print(--numero);
-  print(numero);
-  print(numero++);
-  print(numero);
-  print(numero--);
-  print(numero);
+  //print(--numero);
+  //print(numero);
+  //print(numero++);
+  //print(numero);
+  //print(numero--);
+  //print(numero);
 }
