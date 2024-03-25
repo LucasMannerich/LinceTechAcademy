@@ -15,11 +15,11 @@ void main() {
   List<int> listaConvertida = listaParaNumeros(listaStrings);
 
   print('Lista convertida: ${listaConvertida.join(', ')}');
-  
+
 }
 
 List<int> listaParaNumeros(List<String> listaStrings) {
 
-  return listaStrings.map((str) => int.tryParse(str) ?? 0).toList();
+  return listaStrings.map((String) => int.tryParse(String) ?? 0).toList();
 
 }
