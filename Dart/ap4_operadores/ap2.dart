@@ -12,13 +12,13 @@ void main() {
     '78'
   ];
 
-  List<int> listaConvertida = listaParaNumeros(listaStrings);
+  List<int> listaConvertida = listaNumeros(listaStrings);
 
   print('Lista convertida: ${listaConvertida.join(', ')}');
 
 }
 
-List<int> listaParaNumeros(List<String> listaStrings) {
+List<int> listaNumeros(List<String> listaStrings) {
 
   return listaStrings.map((String) => int.tryParse(String) ?? 0).toList();
 
