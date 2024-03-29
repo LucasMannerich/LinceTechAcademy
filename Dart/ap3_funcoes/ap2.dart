@@ -10,8 +10,9 @@ void main() {
 }
 
 funcaoA (Function) {
-  int num1 = Random().nextInt(101);
-  int num2 = Random().nextInt(101);
+  final random = Random();
+  int num1 = random.nextInt(101);
+  int num2 = random.nextInt(101);
 
   int resultado1 = Function(num1);
   int resultado2 = Function(num2);
