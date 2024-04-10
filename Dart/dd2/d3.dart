@@ -66,3 +66,5 @@ void main() {
   biblioteca.buscarPorArtista('Queen');
   biblioteca.buscarPorAlbum('Nevermind');
 }
+
+// Estudar e refazer
