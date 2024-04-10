@@ -1,6 +1,7 @@
 import 'dart:math';
 
 void main() {
+  final random = Random();
   int somaPares(int numero) {
     int soma = 0;
     for (int i = 0; i <= numero; i += 2) {
@@ -10,7 +11,7 @@ void main() {
   }
 
   int gerarNumeroAleatorio() {
-    return Random().nextInt(901) + 100;
+    return random.nextInt(901) + 100;
   }
 
   int numeroAleatorio = gerarNumeroAleatorio();
