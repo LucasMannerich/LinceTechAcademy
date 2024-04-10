@@ -33,7 +33,7 @@ void main() {
   deck.addCard(Card('A', '♣')); // paus - U+2663
   deck.addCard(Card('A', '♥')); // copas - U+2665
   deck.addCard(Card('A', '♠')); // espadas - U+2660
-  deck.addCard(Card('A', '♦')); // ouros - U+2666
+  deck.addCard(Card('A', '♦'));
 
   // Remover todas as cartas do baralho
   print('${deck._cards}');
