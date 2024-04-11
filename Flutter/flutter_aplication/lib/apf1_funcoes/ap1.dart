@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Cores Aleatórias',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.deepPurple,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Cores Aleatórias'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
 
   @override
@@ -31,39 +29,45 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  Color _cor = Colors.black;
 
-  void _incrementCounter() {
+  void _mudarCor() {
     setState(() {
-      _counter++;
+      _cor = Color((Random().nextDouble() * 0xFFFFFF).toInt() << 0).withOpacity(1.0);
     });
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+        child: GestureDetector(
+          onTap: _mudarCor,
+            child: Text(
+              'Toque para alterar a cor',
+              style: TextStyle(
+                fontSize: 20.0,
+                color: _cor,
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Container(
+        alignment: Alignment.center,
+        width: 200.0,
+        height: 50.0,
+        child: ElevatedButton(
+          onPressed: _mudarCor,
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.all(16.0),
+            textStyle: const TextStyle(fontSize: 20.0),
+          ),
+          child: const Text('Sortear cor'),
+        ),
       ),
     );
   }
