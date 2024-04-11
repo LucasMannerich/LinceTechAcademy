@@ -10,9 +10,9 @@ void main() {
 }
 
 enum SituacaoDoJogo {
-  Jogando,
-  Venceu,
-  Perdeu,
+  jogando,
+  venceu,
+  perdeu,
 }
 
 class MyApp extends StatelessWidget {
@@ -48,7 +48,7 @@ class _MyWidgetState extends State<MyWidget> {
   var clicks = 0;
   var ganhou = 0;
   var perdeu = 0;
-  var situacaoDoJogo = SituacaoDoJogo.Jogando;
+  var situacaoDoJogo = SituacaoDoJogo.jogando;
 
   @override
   void initState() {
@@ -58,14 +58,14 @@ class _MyWidgetState extends State<MyWidget> {
 
   void tentativa(int opcao) {
     setState(() {
-      if (situacaoDoJogo case SituacaoDoJogo.Jogando) {
+      if (situacaoDoJogo case SituacaoDoJogo.jogando) {
         if (opcao == botaoCorreto) {
-          situacaoDoJogo = SituacaoDoJogo.Venceu;
+          situacaoDoJogo = SituacaoDoJogo.venceu;
           ganhou++;
         } else {
           clicks++;
           if (clicks >= 2) {
-            situacaoDoJogo = SituacaoDoJogo.Perdeu;
+            situacaoDoJogo = SituacaoDoJogo.perdeu;
             perdeu++;
           }
         }
@@ -77,7 +77,7 @@ class _MyWidgetState extends State<MyWidget> {
     setState(() {
       botaoCorreto = random.nextInt(3);
       clicks = 0;
-      situacaoDoJogo = SituacaoDoJogo.Jogando;
+      situacaoDoJogo = SituacaoDoJogo.jogando;
     });
   }
 
@@ -149,15 +149,15 @@ class _MyWidgetState extends State<MyWidget> {
 
     Widget estadoDoJogo;
     switch (situacaoDoJogo) {
-      case SituacaoDoJogo.Jogando:
+      case SituacaoDoJogo.jogando:
         estadoDoJogo = botoes();
         break;
-      case SituacaoDoJogo.Venceu:
-        situacaoDoJogo = SituacaoDoJogo.Venceu;
+      case SituacaoDoJogo.venceu:
+        situacaoDoJogo = SituacaoDoJogo.venceu;
         estadoDoJogo = mensagemDeVitoria();
         break;
-      case SituacaoDoJogo.Perdeu:
-        situacaoDoJogo = SituacaoDoJogo.Perdeu;
+      case SituacaoDoJogo.perdeu:
+        situacaoDoJogo = SituacaoDoJogo.perdeu;
         estadoDoJogo = mensagemDeDerrota();
         break;
     }
