@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Botão Aleatório',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Botão Aleatório'),
     );
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({super.key, required this.title});
   final String title;
 
   @override
@@ -79,27 +79,27 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 _checagemDoBotaoCerto('A');
               },
-              child: Text('A'),
+              child: const Text('A'),
             ),
             ElevatedButton(
               onPressed: () {
                 _checagemDoBotaoCerto('B');
               },
-              child: Text('B'),
+              child: const Text('B'),
             ),
             ElevatedButton(
               onPressed: () {
                 _checagemDoBotaoCerto('C');
               },
-              child: Text('C'),
+              child: const Text('C'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             if (_fimDeJogo)
               Container(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Text(
                   _tentativas == 2 ? 'Você perdeu' : 'Você acertou',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
           ],
