@@ -10,20 +10,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MudarForma(),
+    return MaterialApp(
+      home: _MyAppState(),
     );
   }
 }
 
-class MudarForma extends StatefulWidget {
-  const MudarForma({super.key});
-
+class _MyAppState extends StatefulWidget {
   @override
-  AlterarForma createState() => AlterarForma();
+  _AlterarFormaState createState() => _AlterarFormaState();
 }
 
-class AlterarForma extends State<MudarForma> {
+class _AlterarFormaState extends State<_MyAppState> {
   bool circulo = true;
   Color corDaForma = Colors.blue;
 
