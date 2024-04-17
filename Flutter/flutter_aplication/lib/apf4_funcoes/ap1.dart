@@ -11,108 +11,74 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: '/',
-      routes:{
-        '/' : (context) => const TelaHome(),
-        '/telaVermelha' : (context) => const TelaVermelha(),
-        '/telaAzul' : (context) => const TelaAzul()
+      routes: {
+        '/': (context) => const TelaHome(),
+        '/cor': (context) => TelaDaCor(
+          cor: ModalRoute.of(context)!.settings.arguments as Color,
+        ),
       },
     );
   }
 }
 
+class VariaveisDaListaDeCores {
+  const VariaveisDaListaDeCores(this.cor, this.nomeDaCor);
+
+  final Color cor;
+  final String nomeDaCor;
+}
+
 class TelaHome extends StatelessWidget {
   const TelaHome({super.key});
 
+  final List<VariaveisDaListaDeCores> cores = const [
+    VariaveisDaListaDeCores(Colors.red, 'Vermelho'),
+    VariaveisDaListaDeCores(Colors.blue, 'Azul'),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text( 'Home'),
-        ),
-        body: Center(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home'),
+      ),
+      body: ListView.builder(
+        itemCount: cores.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            tileColor: cores[index].cor,
+            title: Text(
+              cores[index].nomeDaCor,
+              style: const TextStyle(color: Colors.white),
             ),
-            child: const Text( 'Vermelho',
-              style: TextStyle(
-                  color: Colors.white),
-            ),
-            onPressed:() {
-    
-              Navigator.pushNamed(context, '/telaVermelha');
-              },
-            ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                  ),
-                  child: const Text( 'Azul',
-                    style: TextStyle(
-                        color: Colors.black),
-                  ),
-                  onPressed:() {
-    
-                    Navigator.pushNamed(context, '/telaAzul');
-                  },
-                ),
-            ],
-          ),
-        ),
+            onTap: () {
+              Navigator.pushNamed(context, '/cor', arguments: cores[index].cor);
+            },
+          );
+        },
       ),
     );
   }
 }
 
-class TelaVermelha extends StatelessWidget {
-  const TelaVermelha({super.key});
+class TelaDaCor extends StatelessWidget {
+  final Color cor;
+
+  const TelaDaCor({super.key, required this.cor});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-          appBar: AppBar(
-            title: const Text( 'Tela Vermelha'),
-            backgroundColor: Colors.red,
-          ),
-    
-          body: Center(
-            child: ElevatedButton(
-              child: const Text( 'Retornar para Home'),
-              onPressed:() {
-    
-                Navigator.pop(context, '/');
-              },
-            ),
-          ),
-        ),
-    );
-  }
-}
-
-class TelaAzul extends StatelessWidget {
-  const TelaAzul({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text( 'Tela Azul'),
-          backgroundColor: Colors.blue,
-        ),
-    
-        body: Center(
-          child: ElevatedButton(
-            child: const Text( 'Retornar para tela Home'),
-            onPressed:() {
-              Navigator.pop(context, '/');
-            },
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cor selecionada'),
+        backgroundColor: cor,
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Voltar'),
         ),
       ),
     );
